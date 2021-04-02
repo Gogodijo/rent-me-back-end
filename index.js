@@ -15,6 +15,8 @@ app.listen(3000, (err)=> {
 const mongo = require('./database')
 mongo.con
 
+app.use(express.static('build'))
+
 const loginAndRegister = require('./Controllers/logInAndRegister')
 const posts = require('./Controllers/posts')
 
