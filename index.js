@@ -20,6 +20,11 @@ app.use(express.static('build'))
 const loginAndRegister = require('./Controllers/logInAndRegister')
 const posts = require('./Controllers/posts')
 
+app.get("/ping", (req,res) => {
+  res.json({status:true, msg:'pong'})
+})
+
+
 app.post("/refresh", loginAndRegister.refresh)
 app.post("/login", loginAndRegister.logIn)
 app.post("/register", loginAndRegister.register)
