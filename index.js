@@ -3,7 +3,9 @@ require('dotenv').config()
 const app = express()
 const bodyparser = require('body-parser')
 app.use(bodyparser.json())
-app.listen(3000, (err)=> {
+const cors = require('cors')
+
+app.listen(3001, (err)=> {
     if(err){
         console.log(err)
     }
@@ -14,7 +16,7 @@ app.listen(3000, (err)=> {
 
 const mongo = require('./database')
 mongo.con
-
+app.use(cors())
 app.use(express.static('build'))
 
 const loginAndRegister = require('./Controllers/logInAndRegister')
