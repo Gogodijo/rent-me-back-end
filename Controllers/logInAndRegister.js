@@ -210,7 +210,7 @@ const refresh = async (req, res) => {
           })
         }
         else {
-
+            //Mitä täällä pitäisi tehdä? Ei muista enään =(
         }
       }
     })
