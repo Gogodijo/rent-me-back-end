@@ -22,7 +22,9 @@ const UserSchema = new mongoose.Schema({
     avatar_url: {
       type:String,
       default: ""
-    }
+    },
+    contactPersonFor: {type: mongoose.Schema.Types.ObjectId, ref: 'Renter'}
+    
 }, {timestamps:true})
 
 UserSchema.set('toJSON', {

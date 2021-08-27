@@ -37,6 +37,8 @@ const verifyToken = async (req, res, next) => {
   }
 }
 
+
+
 module.exports = {
   requestLogger,
   unknownEndpoint,

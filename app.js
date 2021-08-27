@@ -5,15 +5,19 @@ app.use(express.json())
 const cors = require('cors')
 const middleware = require('./utils/middleware')
 const mongo = require('./database')
-const usersRouter = require('./Controllers/logInAndRegister')
+mongo()
+const usersRouter = require('./Controllers/loginAndRegister/logInAndRegisterRouter')
+const refresh = require('./utils/refresh')
 
 app.use(cors())
 app.use(express.static('build'))
 
 app.get("/ping", (req,res) => {
-  res.json({status:true, msg:'pong'})
+  res.send("pong")
 })
 
+
+app.post('/api/refresh', refresh)
 app.use('/api/user', usersRouter)
 
 app.use(middleware.unknownEndpoint)
