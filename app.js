@@ -1,4 +1,5 @@
 const express = require('express')
+require('express-async-errors');
 require('dotenv').config()
 const app = express()
 app.use(express.json())
@@ -16,11 +17,11 @@ app.get("/ping", (req,res) => {
   res.send("pong")
 })
 
-
 app.post('/api/refresh', refresh)
 app.use('/api/user', usersRouter)
 
-app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
+app.use(middleware.unknownEndpoint)
+
 
 module.exports = app

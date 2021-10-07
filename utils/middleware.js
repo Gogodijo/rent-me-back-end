@@ -29,7 +29,7 @@ const verifyToken = async (req, res, next) => {
   if (typeof bearerHeader !== 'undefined') {
       const bearer = bearerHeader.split(' ')
       const bearerToken = bearer[1]
-      const decoded = await jwt.verify(bearerToken, process.env.SECRET)
+      const decoded = jwt.verify(bearerToken, process.env.SECRET)
       req.user = decoded
       next()
   } else {

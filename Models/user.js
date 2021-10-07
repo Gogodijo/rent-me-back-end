@@ -2,7 +2,13 @@ const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
     email: String,
-    name: String,
+    firstName: String,
+    lastName: String,
+
+    address: {
+      type:String,
+      default:''
+    },
     password: {
         type:String,
         default:""
@@ -23,6 +29,7 @@ const UserSchema = new mongoose.Schema({
       type:String,
       default: ""
     },
+    
     contactPersonFor: {type: mongoose.Schema.Types.ObjectId, ref: 'Renter'}
     
 }, {timestamps:true})

@@ -9,12 +9,11 @@ const invalidRegisterInfo = (email, name, password) => {
 
 
 const register = async (req, res, next) => {
-  const { email, name, password } = req.body
-  if (!email || !name || !password) {
+  const { email,firstName, lastName, password } = req.body
+  if (!email || !firstName || !lastName || !password) {
     res.status(400).json({ message: "Invalid data" })
     return
   }
-
   if (await User.findOne({ email: email })) {
     res.status(422).json({
       message: "Email already in use"
@@ -25,8 +24,9 @@ const register = async (req, res, next) => {
     const hashedPasword = await bcrypt.hash(password, 10)
     const refreshToken = jwt.sign({ email: email }, process.env.REFRESH_TOKEN_SECRET)
     const user = new User({
-      email: email,
-      name: name,
+      email,
+      firstName,
+      lastName,
       password: hashedPasword,
       refresh_token: refreshToken
     })

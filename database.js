@@ -5,7 +5,6 @@ async function con() {
   mongoose.connect(process.env.DB_CONNECTION_STRING,
     {
       useNewUrlParser: true,
-      useFindAndModify: false,
       useUnifiedTopology: true
     },
     (error) => {
