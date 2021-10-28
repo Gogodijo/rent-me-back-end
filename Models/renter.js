@@ -22,7 +22,6 @@ const RenterSchema = new mongoose.Schema({
     businessID: {
       type: String
     },
-
     email: {
       type: String,
       required: true

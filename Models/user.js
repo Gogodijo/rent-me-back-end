@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
       default: ""
     },
     
-    contactPersonFor: {type: mongoose.Schema.Types.ObjectId, ref: 'Renter'}
+    contactPersonFor: {type: mongoose.Schema.Types.ObjectId, ref: 'Renter', default:""}
     
 }, {timestamps:true})
 
